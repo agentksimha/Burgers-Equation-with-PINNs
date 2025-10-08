@@ -1,4 +1,4 @@
-Physics-Informed Neural Network for 1D Heat & Burgers’ Equation
+Physics-Informed Neural Network for 1D Heat & Burgers Equation
 
 
 The 1D heat equation models flow of heat in systems like a 1D metal rod and Burgers Equation models nonlinear convection and diffusion phenomena.
