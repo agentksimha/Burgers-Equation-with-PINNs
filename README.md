@@ -53,19 +53,56 @@ u(0,t) = u(1,t) = 0
 
 
 
-Neural Network Architecture & Training:
+Neural Network Architecture & Training For heat equation:
 
 
-Initial setup: Fully connected NN with 70 neurons per hidden layer, trained for 300 epochs
+Initial setup: Fully connected NN with 70 neurons per hidden layer, trained for 300 epochs with learning rate = 0.01 and alpha = 0.01
 
 
-Results: Achieved reasonable approximation of the solution; loss curve (loss_curve) and solution surface (Solution_curve) are included in images.
+
 
 
 Improved setup: Increased to 100 neurons per hidden layer, trained for 350 epochs
 
 
 Results: Loss convergence and solution accuracy improved significantly (loss_curve1 and Solution_curve1); sharper gradients captured, residual errors reduced.
+
+
+
+Neural Network Architecture & Training  for Burgers Equation
+
+
+For the Burgers’ equation, the PINN model was designed as a fully connected neural network that takes space (x) and time 
+
+
+(t) as inputs and outputs the predicted solution u(x,t).
+
+Initial setup:
+
+120 neurons per hidden layer
+
+350 training epochs
+
+Learning rate: 0.01
+
+Viscosity term (ν): 0.01
+
+This configuration achieved smooth and accurate solution curves, capturing both the diffusion and nonlinear convection effects effectively.
+
+Increased complexity:
+
+130 neurons per hidden layer
+
+420 training epochs (same learning rate and viscosity)
+
+While this setup increased model capacity, it led to overfitting—the predicted solution curves began deviating from the analytical solution, especially at higher time steps.
+
+The loss reduced numerically but the physical fidelity of the solution degraded.
+
+Conclusion:
+
+The results highlight that increasing network size beyond a threshold can cause overfitting in PINNs, as the model starts fitting numerical noise instead of respecting the PDE’s underlying physics.
+
 
 
 
