@@ -77,7 +77,7 @@ For the Burgers’ equation, the PINN model was designed as a fully connected ne
 
 (t) as inputs and outputs the predicted solution u(x,t).
 
-Initial setup:
+Initial setup (represented by loss_curves_burgers(1) and Solution_curves_burgers(1)):
 
 120 neurons per hidden layer
 
@@ -89,7 +89,7 @@ Viscosity term (ν): 0.01
 
 This configuration achieved smooth and accurate solution curves, capturing both the diffusion and nonlinear convection effects effectively.
 
-Increased complexity:
+Increased complexity(representedby loss_curves_burgers(3) and solution_curves_burgers(3)) :
 
 130 neurons per hidden layer
 
