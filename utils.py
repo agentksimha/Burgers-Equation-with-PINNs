@@ -1,7 +1,7 @@
 import torch
 import numpy as np
 import math
-
+from scipy.special import iv 
 def true_solution(x, t, alpha=0.01):
     """Analytical solution for 1D Heat Equation u_t = alpha*u_xx with sin(πx) IC."""
     return np.exp(-alpha * math.pi**2 * t) * np.sin(math.pi * x)
