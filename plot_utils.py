@@ -3,6 +3,7 @@ from mpl_toolkits.mplot3d import Axes3D
 import numpy as np
 import torch
 from utils import true_solution
+from scipy.special import iv
 
 def plot_results(model, x, t, alpha=0.01, save_path=None):
     Nx, Nt = len(x), len(t)
@@ -14,6 +15,15 @@ def plot_results(model, x, t, alpha=0.01, save_path=None):
         U_pred = model(x_test, t_test).cpu().numpy().reshape(Nt, Nx)
 
     U_true = true_solution(X, T, alpha)
+    #U_true = np.zeros_like(U_pred)
+    #for i, ti in enumerate(t):
+        #decay = np.exp(-nu * (np.pi * k) ** 2 * ti)
+        #cos_terms = np.cos(np.pi * np.outer(k, x))
+        #sin_terms = np.sin(np.pi * np.outer(k, x))
+        #theta = I0 + 2 * np.sum(Ik[:, None] * cos_terms * decay[:, None], axis=0)
+        #theta_x = -2 * np.sum(Ik[:, None] * (np.pi * k)[:, None] * sin_terms * decay[:, None], axis=0)
+        #U_true[i, :] = -2 * nu * theta_x / theta
+    #the above code is for calculating U_true for burgers equation 
     error = np.abs(U_pred - U_true)
 
     fig = plt.figure(figsize=(15, 5))
