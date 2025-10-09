@@ -4,7 +4,7 @@ Physics-Informed Neural Network for 1D Heat & Burgers Equation
 The 1D heat equation models flow of heat in systems like a 1D metal rod and Burgers Equation models nonlinear convection and diffusion phenomena.
 
 
-This project implements a Physics-Informed Neural Network (PINN) to solve the heat-Equation :
+This project implements a Physics-Informed Neural Network (PINN) to solve the heat-Equation 
 
 
 u_t  = alpha * u_xx,  x E [0,1]  , t E [0,3600]
@@ -16,7 +16,7 @@ and Burgers_equation:
 
 u_t + u * u_xx = v *u_xx
 
-An analytical solution to Burgers_equation with given boundary conditions (also called as  homogenous Dirichlet Boundary conditions) is  =  exp(-1/(2 * V) * (1-cos(pi * x)/pi)
+As the analytical solution of Burgers equation involves use of infinite sum  with Basel function we will use a approximate form of it with finite sum .
 
 Features
 
