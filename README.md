@@ -9,12 +9,14 @@ This project implements a Physics-Informed Neural Network (PINN) to solve the he
 
 u_t  = alpha * u_xx,  x E [0,1]  , t E [0,3600]
 
+The analytical solution to heat equation with given boundary conditions is u = e^(-alpha * pi^2 *t) * sin(pi * x)
 
 and Burgers_equation:
 
 
 u_t + u * u_xx = v *u_xx
 
+An analytical solution to Burgers_equation with given boundary conditions (also called as  homogenous Dirichlet Boundary conditions) is  =  exp(-1/(2*V) * (1-cos(pi*x)/pi)
 
 Features
 
