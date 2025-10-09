@@ -16,7 +16,7 @@ and Burgers_equation:
 
 u_t + u * u_xx = v *u_xx
 
-An analytical solution to Burgers_equation with given boundary conditions (also called as  homogenous Dirichlet Boundary conditions) is  =  exp(-1/(2*V) * (1-cos(pi*x)/pi)
+An analytical solution to Burgers_equation with given boundary conditions (also called as  homogenous Dirichlet Boundary conditions) is  =  exp(-1/(2 * V) * (1-cos(pi * x)/pi)
 
 Features
 
