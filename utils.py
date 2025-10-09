@@ -6,8 +6,32 @@ def true_solution(x, t, alpha=0.01):
     """Analytical solution for 1D Heat Equation u_t = alpha*u_xx with sin(πx) IC."""
     return np.exp(-alpha * math.pi**2 * t) * np.sin(math.pi * x)
 
-import torch
-import numpy as np
+def burgers_analytical(x, t, nu=0.01, n_terms=200):
+    """
+    Analytical solution of Burgers' equation using Cole–Hopf transform.
+    u_t + u*u_x = nu*u_xx,  u(x,0)=sin(pi*x), u(0,t)=u(1,t)=0
+    """
+    # constant C from initial condition
+    C = 1 / (2 * nu * np.pi)
+
+    # Bessel coefficients
+    k = np.arange(1, n_terms + 1)
+    I0 = iv(0, C)
+    Ik = iv(k, C)
+
+    # Expand theta(x,t)
+    cos_terms = np.cos(np.pi * np.outer(k, x)) * np.exp(-nu * (np.pi * k) ** 2 * t)
+    sin_terms = np.sin(np.pi * np.outer(k, x)) * np.exp(-nu * (np.pi * k) ** 2 * t)
+
+    # Theta(x,t)
+    theta = I0 + 2 * np.sum(Ik[:, None] * cos_terms, axis=0)
+
+    # Theta_x(x,t)
+    theta_x = -2 * np.sum(Ik[:, None] * (np.pi * k) * sin_terms, axis=0)
+
+    # Burgers solution: u = -2*nu * theta_x / theta
+    u = -2 * nu * theta_x / theta
+    return u
 
 def generate_data(Nx=100, Nt=100, Nf=10000, x0=0, xmax=1, t0=0, tmax=3600):
     x = np.linspace(x0, xmax, Nx).reshape(-1,1).astype(np.float32)
