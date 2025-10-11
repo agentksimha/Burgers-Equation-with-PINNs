@@ -1,4 +1,4 @@
-Physics-Informed Neural Network for 1D Heat & Burgers Equation
+****Physics-Informed Neural Network for 1D Heat & Burgers Equation
 
 
 The 1D heat equation models flow of heat in systems like a 1D metal rod and Burgers Equation models nonlinear convection and diffusion phenomena.
@@ -101,9 +101,16 @@ While this setup increased model capacity, it led to overfitting—the predicted
 
 The loss reduced numerically but the physical fidelity of the solution degraded.
 
-Conclusion:
+Conclusion: The results highlight that increasing network size beyond a threshold can cause overfitting in PINNs, as the model starts fitting numerical noise instead of respecting the PDE’s underlying physics.
 
-The results highlight that increasing network size beyond a threshold can cause overfitting in PINNs, as the model starts fitting numerical noise instead of respecting the PDE’s underlying physics.
+****Future Work:
+
+To extend this study toward the inviscid Burgers’ equation (where viscosity ν = 0 and convection coefficient c = 1), the current PINN framework can be adapted into a Piecewise Shock Neural Network (PSNN). Unlike 
+
+standard PINNs, which assume solution smoothness, PSNNs handle shock discontinuities by dividing the spatial domain into piecewise regions and enforcing the Rankine–Hugoniot jump condition at the shock 
+
+interface. This allows accurate learning of discontinuous solutions and physically consistent shock propagation in the inviscid limit.
+
 
 
 
